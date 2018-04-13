@@ -1,47 +1,58 @@
-var utils = require('./utils.js');
+var {every ,waterfall} = require('./utils.js');
+// every(['yes','yes','yes'],function(answer,callback){
+//     if(answer === 'yes'){
+//         callback(null, true)
+//     }
+//     else{
+//         callback(null, false)
+//     }
+// },function(err,result){
+//     if(err){
+//         console.log('err: ',err);
+//     }
+//     else if(result){
+//         console.log('Result : ',result)
+//     }
+// });
 
-utils.every(['yes','yes','yes'],function(answer,callback){
-    if(answer === 'yes'){
-        callback(null, true)
+waterfall([
+    function(callback) {
+        callback(null, 'yess');
+    },
+    function(arg, callback) {
+      console.log('Use prevData 1',arg)
+      var caption = 'works 0' 
+      if(arg === 'yes'){
+        callback(null, caption);
+      } else{
+        console.log('arg else',arg)
+        var err = 'Some error occured in fn.2'
+        callback(err, null);
+      }
+    },
+    function(caption, callback) {
+      console.log('Use prevData 2',caption)
+      var caption = false;
+      callback(null, caption);
+    },
+    function(bool, callback) {
+      if(bool){
+        console.log('Use prevData 3',bool)
+        var caption = ' works 2!';
+        callback(null, caption);
+      } else{
+        var err = 'Some error occured in fn.3'
+        callback(err, null);
+      }
+      
+    }
+],function(err,results){
+  console.log(err,results);
+    if(err){
+      console.log('ERR === ',err)
     }
     else{
-        callback(null, false)
-    }
-},function(err,result){
-    if(err){
-        console.log('err: ');
-    }
-    else if(result){
-        console.log('Result : ',result)
+      console.log('Return')
     }
 });
 console.log('In')
-
-// async.every(arrayOfArray25, function(arrayOf25, callback) {
-//     var params = {
-//       RequestItems: {
-//         [table]: []
-//       }
-//     };
-//     arrayOf25.forEach(function(item){
-//       params.RequestItems[table].push({
-//         PutRequest:{
-//           Item: item
-//         }
-//       })
-//     });
-//     docClient.batchWrite(params, function(err, data) {
-//       if (err){ 
-//         console.log(err);
-//         callback(err);
-//       } else {
-//         callback(null, true);
-//       };
-//     });
-//   }, function(err,result){
-//     if(err){
-//       cb(err);
-//     } else {
-//       cb(null);
-//     }
-//   });
