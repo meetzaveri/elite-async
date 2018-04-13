@@ -1,9 +1,9 @@
 
-
+// Every async implementation
 exports.every = function(arr, truthTest, callback) {
   let i = 0;
   function renderEvery(i) {
-    console.log('Arr',arr);
+    console.log('Arr',arr[i]);
     truthTest(arr[i], (dummyparams, bool) => {
       console.log('i(in truthtest) - ',i);
       // Normal Setup for flow in truthtest
@@ -18,7 +18,7 @@ exports.every = function(arr, truthTest, callback) {
             }
             else{
               // return final function with err
-              return callback(false, null);
+              return callback('false', null);
             }
           })
         }
@@ -35,4 +35,62 @@ exports.every = function(arr, truthTest, callback) {
   }
   renderEvery(i);
 }
+
+// Waterfall implementation
+exports.waterfall = function(arr,callback){
+    let i = 0;
+    // captures data to pass onto next function
+    let capturerOfI = [];
+    function renderWaterFall(i){
+      if(i === 0){
+        console.log('I',i)
+        var item = arr[i];
+        item((cont,caption)=>{
+          if(cont !== null){
+            console.log('After err occured',cont)
+            return callback(cont,null);
+          }
+          else{
+            console.log('Is it',caption);
+            capturerOfI.push(caption);
+            i++;
+            renderWaterFall(i);
+          }
+        })
+        
+      }
+      else if(i === arr.length - 1){
+        console.log('I',i)
+        var item = arr[i];
+        item(capturerOfI[i-1],(cont,caption)=>{
+          if(cont !== null){
+            console.log('After err occured',cont)
+            return callback(cont,null);
+          }
+          else{
+            capturerOfI.push(caption);
+            console.log('Capturer',capturerOfI)
+          }
+        })
+      }
+      else if(i < arr.length - 1){
+        console.log('I',i)
+        var item = arr[i];
+        item(capturerOfI[i-1],(cont,caption)=>{
+          if(cont !== null){
+            console.log('After err occured',cont)
+            return callback(cont,null);
+          }
+          else{
+            capturerOfI.push(caption);
+            i++;
+            renderWaterFall(i);
+          }
+        })
+      }
+    }
+    renderWaterFall(i);
+}
+
+
 
