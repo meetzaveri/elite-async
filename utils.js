@@ -36,7 +36,6 @@ exports.every = function(arr, truthTest, callback) {
   renderEvery(i);
 }
 
-// Waterfall implementation
 exports.waterfall = function(arr,callback){
     let i = 0;
     // captures data to pass onto next function
@@ -69,7 +68,7 @@ exports.waterfall = function(arr,callback){
           }
           else{
             capturerOfI.push(caption);
-            console.log('Capturer',capturerOfI)
+            console.log('Capturer',capturerOfI);
           }
         })
       }
@@ -93,4 +92,46 @@ exports.waterfall = function(arr,callback){
 }
 
 
+
+exports.parallel = function(tasks,callback){
+  let i =0;
+  let arrayData = [];
+  let objData = {};
+  function middlewareCallback(data){
+    while(data.length === tasks.length){
+      callback(null,data);
+      return;
+    }
+  }
+
+  tasks.forEach((item,index) =>{
+    item((err,data) => {
+      if(index < tasks.length - 1){
+        if(err){
+          callback(err,null);
+        } else{
+          if(arrayData.length  === tasks.length){
+            // do nothing
+          }
+          else{
+            arrayData.splice(index,0,data);
+            middlewareCallback(arrayData);
+          }
+        }
+      } else if(index === tasks.length - 1) {
+        if(err){
+          callback(err,null);
+        } else{
+          if(arrayData.length  === tasks.length){
+            // do nothing
+          }
+          else{
+            arrayData.splice(index,0,data);
+            middlewareCallback(arrayData);
+          }
+        }
+      }
+    })
+  })
+}
 
