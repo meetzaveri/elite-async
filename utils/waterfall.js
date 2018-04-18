@@ -1,3 +1,4 @@
+// .waterfall() async implementation
 module.exports =  function(arr,callback){
   let i = 0;
   // captures data to pass onto next function

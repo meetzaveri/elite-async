@@ -1,4 +1,4 @@
-// Every async implementation
+// .every() async implementation
 module.exports = function(arr, truthTest, callback) {
   let i = 0;
   function renderEvery(i) {

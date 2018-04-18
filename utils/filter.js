@@ -1,4 +1,4 @@
-// Every async implementation
+// .filter() async implementation
 module.exports = function(arr, truthTest, callback) {
   let acc = [];
   let dummyacc = [];

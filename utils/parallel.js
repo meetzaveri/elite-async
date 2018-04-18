@@ -1,3 +1,4 @@
+// .parallel() async implementation
 module.exports =  function (tasks,callback){
   let i =0;
   let arrayData = [];
