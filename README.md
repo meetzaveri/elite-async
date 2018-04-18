@@ -6,10 +6,12 @@ With pure vanilla JS, I have been able to develop caolan's async library's some 
 - [X] .parallel()
 - [X] .every()
 - [X] .waterfall()
+- [X] .filter()
+
 ### Want to implement
 - [ ] .each()
 - [ ] .reduceRight()
-- [ ] .filter()
+
 
 ## Want to contribute
 - Take out pull from development branch
