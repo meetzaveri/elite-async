@@ -8,7 +8,7 @@ With pure vanilla JS, I have been able to develop caolan's async library's some 
 - [X] .waterfall()
 - [X] .filter()
 
-### Want to implement
+### Will implement
 - [ ] .each()
 - [ ] .reduceRight()
 
