@@ -1,12 +1,15 @@
 # mimicing-async
 With pure vanilla JS, I have been able to develop caolan's async library's some of the most used collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods.I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
 
-## Collections/ Control-Flow methods to have
-- [X] Parallel
-- [X] Every
-- [X] Waterfall
-- [ ] Each
-- [ ] ReduceRight
+## Collections/ Control-Flow methods 
+### Currently implemented
+- [X] .parallel()
+- [X] .every()
+- [X] .waterfall()
+### Want to implement
+- [ ] .each()
+- [ ] .reduceRight()
+- [ ] .filter()
 
 ## want to contribute
 - Take out pull from development branch
