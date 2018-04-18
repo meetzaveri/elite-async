@@ -11,7 +11,7 @@ With pure vanilla JS, I have been able to develop caolan's async library's some 
 - [ ] .reduceRight()
 - [ ] .filter()
 
-## want to contribute
+## Want to contribute
 - Take out pull from development branch
 
 ## Inspiration
