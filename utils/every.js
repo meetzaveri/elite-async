@@ -1,5 +1,5 @@
 // Every async implementation
-exports.every = function(arr, truthTest, callback) {
+module.exports = function(arr, truthTest, callback) {
   let i = 0;
   function renderEvery(i) {
     truthTest(arr[i], (dummyparams, bool) => {

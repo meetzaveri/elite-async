@@ -1,4 +1,4 @@
-exports.parallel = function(tasks,callback){
+module.exports =  function (tasks,callback){
   let i =0;
   let arrayData = [];
   let objData = {};

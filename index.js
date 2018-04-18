@@ -75,23 +75,23 @@ parallel([
   function(callback) {
       setTimeout(function() {
           callback(null, 'one');
-      }, 200);
+      }, 7200);
   },
   function(callback) {
       setTimeout(function() {
           callback(null, 'two');
-      }, 2000);
+      }, 200);
   },
   function(callback) {
     setTimeout(function() {
         callback(null, 'three');
-    }, 4000);
+    }, 200);
   },
   function(callback) {
     if(true === true){
       setTimeout(function() {
         callback(null, 'four');
-    }, 1000);
+    }, 200);
     } else{
       setTimeout(function() {
         var err = 'Some Error Occured'
