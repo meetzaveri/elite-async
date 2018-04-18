@@ -1,4 +1,11 @@
-var {every ,waterfall,parallel} = require('./utils.js');
+var every = require('./utils/every');
+var waterfall =  require('./utils/waterfall');
+var parallel = require('./utils/parallel');
+
+/* 
+.every() example 
+*/
+
 // every(['yes','yes','yes'],function(answer,callback){
 //     if(answer === 'yes'){
 //         callback(null, true)
@@ -14,6 +21,10 @@ var {every ,waterfall,parallel} = require('./utils.js');
 //         console.log('Result : ',result)
 //     }
 // });
+
+/* 
+.waterfall() example 
+*/
 
 // waterfall([
 //     function(callback) {
@@ -56,6 +67,9 @@ var {every ,waterfall,parallel} = require('./utils.js');
 //     }
 // });
 
+/* 
+.parallel() example 
+*/
 
 parallel([
   function(callback) {
