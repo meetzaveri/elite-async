@@ -6,9 +6,7 @@ module.exports = function(arr, truthTest, callback) {
       // Normal Setup for flow in truthtest
       if (err === null) {
         if(bool === true){
-          // Custom Setup for last element in arr
           if (i === arr.length - 1) {
-            
             // REPEAT WHOLE FUNCTION FOR ONE LAST TIME
             truthTest(arr[i], (err, bool) => {
               if(err === null){
@@ -30,9 +28,11 @@ module.exports = function(arr, truthTest, callback) {
             renderEvery(i);
           }
         } else{
+          // error when bool resulted false
           return callback('Some error, result : false', null);
         }
       } else {
+        // whenever error is not null or error occurs
         return callback(err, null);
       }
     });

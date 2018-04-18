@@ -1,16 +1,23 @@
 // .filter() async implementation
 module.exports = function(arr, truthTest, callback) {
-  let acc = [];
-  let dummyacc = [];
+  // Actual Array that will contain data which was passed on true condition
+  let acc = []; 
+  // Dummy Array to be used for conditional purpose
+  let dummyacc = []; 
+
+  // Middleware setup for achieving redudant callbacks to origin  
   function middlewareCallback(data){
     while(data.length === arr.length){
       callback(null,acc);
       return;
     }
   }
+
+  // As its parallel in nature, we need for loop mechanism to carry on calling function
   arr.forEach((item,index) => {
+
+    // TruthTest to be tested for every data in array
     truthTest(arr[index], (err, bool) => {
-      // Normal Setup for flow in truthtest
       if (err === null) {
         if(bool === true){
           // Custom Setup for last element in arr
@@ -44,6 +51,7 @@ module.exports = function(arr, truthTest, callback) {
           middlewareCallback(dummyacc);
         }
       } else {
+        // whenever error is not null or error occurs
         dummyacc.push(arr[index]);
         middlewareCallback(dummyacc);
       }
