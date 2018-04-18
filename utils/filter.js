@@ -11,7 +11,6 @@ module.exports = function(arr, truthTest, callback) {
   arr.forEach((item,index) => {
     truthTest(arr[index], (err, bool) => {
       // Normal Setup for flow in truthtest
-      console.log(arr[index])
       if (err === null) {
         // Custom Setup for last element in arr
         if (index === arr.length - 1) {
