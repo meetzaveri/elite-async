@@ -17,7 +17,7 @@ With pure vanilla JS, I have been able to develop caolan's async library's some 
 - Take out pull from development branch and start hacking
 
 ## Inspiration
-I know callbacks were the wizards behind this, I just need to figure out what's behind the curtain. So I started with pure vanilla JS to crack it up.
+I know callbacks and iterator functions were the wizards behind this, I just need to figure out what's behind the curtain. So I started with pure vanilla JS to crack it up.
 
 ## Todo
 - [ ] Improve Error handling
