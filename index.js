@@ -7,22 +7,22 @@ var filter = require('./utils/filter');
 .every() example 
 */
 
-// every(['yes','yes','yes'],function(answer,callback){
-//     if(answer === 'yes'){
-//       callback(null, true)
-//     }
-//     else{
-//       var err = 'Error occurred'
-//       callback(err);
-//     }
-// },function(err,result){
-//     if(err){
-//         console.log('err: ',err);
-//     }
-//     else {
-//         console.log('Result : ',result)
-//     }
-// });
+every(['yes','yes','yes'],function(answer,callback){
+    if(answer === 'yes'){
+      callback(null, true)
+    }
+    else{
+      var err = 'Error occurred'
+      callback(err);
+    }
+},function(err,result){
+    if(err){
+        console.log('err: ',err);
+    }
+    else {
+        console.log('Result : ',result)
+    }
+});
 
 /* 
 .waterfall() example 
@@ -113,26 +113,30 @@ var filter = require('./utils/filter');
 //   }
 // });
 
-filter(['file1','file2','file3'],function(path,callback){
-  if(path !== 'file1'){
-    setTimeout(function() {
-        callback(null, true);
-    }, 1000);
-  }
-  else{
-    setTimeout(function() {
-      var err = 'Error occurred'
-      callback(err);
-    }, 1000);
-  }
-},function(err,result){
-  if(err){
-      console.log('err: ',err);
-  }
-  else {
-      console.log('Result : ',result)
-  }
-});
+/* 
+.filter() example 
+*/
+
+// filter(['file1','file2','file3'],function(path,callback){
+//   if(path !== 'file1'){
+//     setTimeout(function() {
+//         callback(null, true);
+//     }, 1000);
+//   }
+//   else{
+//     setTimeout(function() {
+//       var err = 'Error occurred'
+//       callback(err);
+//     }, 1000);
+//   }
+// },function(err,result){
+//   if(err){
+//       console.log('err: ',err);
+//   }
+//   else {
+//       console.log('Result : ',result)
+//   }
+// });
 
 console.log('In')
 
