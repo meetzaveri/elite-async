@@ -4,7 +4,6 @@ module.exports = function(arr, truthTest, callback) {
   function renderEvery(i) {
     truthTest(arr[i], (err, bool) => {
       // Normal Setup for flow in truthtest
-      console.log(arr[i])
       if (err === null) {
         if(bool === true){
           // Custom Setup for last element in arr
@@ -16,12 +15,10 @@ module.exports = function(arr, truthTest, callback) {
                 if(bool === true){
                   // return result in final function with boolean flag
                   return callback(null, bool);
-                }
-                else{
+                } else{
                   return callback('Some error, result : false', null);
                 }
-              }
-              else{
+              } else{
                 // return final function with err
                 return callback(err, null);
               }
@@ -32,13 +29,10 @@ module.exports = function(arr, truthTest, callback) {
             ++i;
             renderEvery(i);
           }
-        }
-        else{
+        } else{
           return callback('Some error, result : false', null);
         }
-       
-      }
-      else {
+      } else {
         return callback(err, null);
       }
     });

@@ -12,30 +12,38 @@ module.exports = function(arr, truthTest, callback) {
     truthTest(arr[index], (err, bool) => {
       // Normal Setup for flow in truthtest
       if (err === null) {
-        // Custom Setup for last element in arr
-        if (index === arr.length - 1) {
-          truthTest(arr[index], (err, bool) => {
-            if(err === null){
-              // return result in final function with boolean flag
-              acc.push(arr[index]);
-              dummyacc.push(arr[index]);
-              middlewareCallback(dummyacc);
-            }
-            else{
-              // return final function with err
-              dummyacc.push(arr[index]);
-              middlewareCallback(dummyacc);
-            }
-          })
-        }
-        // else when it's not last element, then use callbacks
-        else if(index < arr.length - 1) {
-          acc.push(arr[index]);
+        if(bool === true){
+          // Custom Setup for last element in arr
+          if (index === arr.length - 1) {
+            truthTest(arr[index], (err, bool) => {
+              if(err === null){
+                if(bool === true){
+                  // return result in final function with boolean flag
+                  acc.push(arr[index]);
+                  dummyacc.push(arr[index]);
+                  middlewareCallback(dummyacc);
+                } else{
+                  dummyacc.push(arr[index]);
+                  middlewareCallback(dummyacc);
+                }
+              } else{
+                // return final function with err
+                dummyacc.push(arr[index]);
+                middlewareCallback(dummyacc);
+              }
+            })
+          }
+          // else when it's not last element, then use callbacks
+          else if(index < arr.length - 1) {
+            acc.push(arr[index]);
+            dummyacc.push(arr[index]);
+            middlewareCallback(dummyacc);
+          }
+        } else{
           dummyacc.push(arr[index]);
           middlewareCallback(dummyacc);
         }
-      }
-      else {
+      } else {
         dummyacc.push(arr[index]);
         middlewareCallback(dummyacc);
       }
