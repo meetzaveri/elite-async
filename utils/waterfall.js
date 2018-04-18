@@ -2,16 +2,17 @@
 module.exports =  function(arr,callback){
   let i = 0;
   // captures data to pass onto next function
-  let capturerOfI = [];
+  let dataStore = [];
+
   function renderWaterFall(i){
     if(i === 0){
       var item = arr[i];
-      item((cont,caption)=>{
-        if(cont !== null){
-          return callback(cont,null);
+      item((err,caption)=>{
+        if(err !== null){
+          return callback(err,null);
         }
         else{
-          capturerOfI.push(caption);
+          dataStore.push(caption);
           i++;
           renderWaterFall(i);
         }
@@ -20,23 +21,23 @@ module.exports =  function(arr,callback){
     }
     else if(i === arr.length - 1){
       var item = arr[i];
-      item(capturerOfI[i-1],(cont,caption)=>{
-        if(cont !== null){
-          return callback(cont,null);
+      item(dataStore[i-1],(err,caption)=>{
+        if(err !== null){
+          return callback(err,null);
         }
         else{
-          capturerOfI.push(caption);
+          dataStore.push(caption);
         }
       })
     }
     else if(i < arr.length - 1){
       var item = arr[i];
-      item(capturerOfI[i-1],(cont,caption)=>{
-        if(cont !== null){
-          return callback(cont,null);
+      item(dataStore[i-1],(err,caption)=>{
+        if(err !== null){
+          return callback(err,null);
         }
         else{
-          capturerOfI.push(caption);
+          dataStore.push(caption);
           i++;
           renderWaterFall(i);
         }
