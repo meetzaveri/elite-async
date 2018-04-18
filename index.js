@@ -6,21 +6,22 @@ var parallel = require('./utils/parallel');
 .every() example 
 */
 
-// every(['yes','yes','yes'],function(answer,callback){
-//     if(answer === 'yes'){
-//         callback(null, true)
-//     }
-//     else{
-//         callback(null, false)
-//     }
-// },function(err,result){
-//     if(err){
-//         console.log('err: ',err);
-//     }
-//     else if(result){
-//         console.log('Result : ',result)
-//     }
-// });
+every(['yes','yes','yes'],function(answer,callback){
+    if(answer === 'yes'){
+      callback(null, true)
+    }
+    else{
+      var err = 'Error occurred'
+      callback(err);
+    }
+},function(err,result){
+    if(err){
+        console.log('err: ',err);
+    }
+    else {
+        console.log('Result : ',result)
+    }
+});
 
 /* 
 .waterfall() example 
@@ -71,45 +72,54 @@ var parallel = require('./utils/parallel');
 .parallel() example 
 */
 
-parallel([
-  function(callback) {
-      setTimeout(function() {
-          callback(null, 'one');
-      }, 7200);
-  },
-  function(callback) {
-      setTimeout(function() {
-          callback(null, 'two');
-      }, 200);
-  },
-  function(callback) {
-    setTimeout(function() {
-        callback(null, 'three');
-    }, 200);
-  },
-  function(callback) {
-    if(true === true){
-      setTimeout(function() {
-        callback(null, 'four');
-    }, 200);
-    } else{
-      setTimeout(function() {
-        var err = 'Some Error Occured'
-        callback(err);
-    }, 1000);
-    }
+// parallel([
+//   function(callback) {
+//       setTimeout(function() {
+//           callback(null, 'one');
+//       }, 7200);
+//   },
+//   function(callback) {
+//       setTimeout(function() {
+//           callback(null, 'two');
+//       }, 200);
+//   },
+//   function(callback) {
+//     setTimeout(function() {
+//         callback(null, 'three');
+//     }, 200);
+//   },
+//   function(callback) {
+//     if(true === true){
+//       setTimeout(function() {
+//         callback(null, 'four');
+//     }, 200);
+//     } else{
+//       setTimeout(function() {
+//         var err = 'Some Error Occured'
+//         callback(err);
+//     }, 1000);
+//     }
     
-  }
-],
-// optional callback
-function(err, results) {
-  if(err){
-    console.log('Err',err);
-    return;
-  } else{
-    console.log('Results ',results);
-  }
-});
+//   }
+// ],
+// // optional callback
+// function(err, results) {
+//   if(err){
+//     console.log('Err',err);
+//     return;
+//   } else{
+//     console.log('Results ',results);
+//   }
+// });
+
+// async.filter(['file1','file2','file3'], function(filePath, callback) {
+//   fs.access(filePath, function(err) {
+//       callback(null, !err)
+//   });
+// }, function(err, results) {
+//   // results now equals an array of the existing files
+// });
+
 console.log('In')
 
 // async.waterfall([
