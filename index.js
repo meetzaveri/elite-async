@@ -1,27 +1,28 @@
 var every = require('./utils/every');
 var waterfall =  require('./utils/waterfall');
 var parallel = require('./utils/parallel');
+var filter = require('./utils/filter');
 
 /* 
 .every() example 
 */
 
-every(['yes','yes','yes'],function(answer,callback){
-    if(answer === 'yes'){
-      callback(null, true)
-    }
-    else{
-      var err = 'Error occurred'
-      callback(err);
-    }
-},function(err,result){
-    if(err){
-        console.log('err: ',err);
-    }
-    else {
-        console.log('Result : ',result)
-    }
-});
+// every(['yes','yes','yes'],function(answer,callback){
+//     if(answer === 'yes'){
+//       callback(null, true)
+//     }
+//     else{
+//       var err = 'Error occurred'
+//       callback(err);
+//     }
+// },function(err,result){
+//     if(err){
+//         console.log('err: ',err);
+//     }
+//     else {
+//         console.log('Result : ',result)
+//     }
+// });
 
 /* 
 .waterfall() example 
@@ -112,13 +113,26 @@ every(['yes','yes','yes'],function(answer,callback){
 //   }
 // });
 
-// async.filter(['file1','file2','file3'], function(filePath, callback) {
-//   fs.access(filePath, function(err) {
-//       callback(null, !err)
-//   });
-// }, function(err, results) {
-//   // results now equals an array of the existing files
-// });
+filter(['file1','file2','file3'],function(path,callback){
+  if(path !== 'file1'){
+    setTimeout(function() {
+        callback(null, true);
+    }, 1000);
+  }
+  else{
+    setTimeout(function() {
+      var err = 'Error occurred'
+      callback(err);
+    }, 1000);
+  }
+},function(err,result){
+  if(err){
+      console.log('err: ',err);
+  }
+  else {
+      console.log('Result : ',result)
+  }
+});
 
 console.log('In')
 

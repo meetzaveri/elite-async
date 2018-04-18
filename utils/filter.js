@@ -1,34 +1,45 @@
+// Every async implementation
 module.exports = function(arr, truthTest, callback) {
-  let i = 0;
   let acc = [];
-  function renderFilter(i) {
-    truthTest(arr[i], (dummyparams, bool) => {
+  let dummyacc = [];
+  function middlewareCallback(data){
+    while(data.length === arr.length){
+      callback(null,acc);
+      return;
+    }
+  }
+  arr.forEach((item,index) => {
+    truthTest(arr[index], (err, bool) => {
       // Normal Setup for flow in truthtest
-      if (bool === true) {
+      console.log(arr[index])
+      if (err === null) {
         // Custom Setup for last element in arr
-        if (i === arr.length - 1) {
-          truthTest(arr[i], (dummyparams, bool) => {
-            if(bool === true){
+        if (index === arr.length - 1) {
+          truthTest(arr[index], (err, bool) => {
+            if(err === null){
               // return result in final function with boolean flag
-              return callback(null, bool);
+              acc.push(arr[index]);
+              dummyacc.push(arr[index]);
+              middlewareCallback(dummyacc);
             }
             else{
               // return final function with err
-              return callback('false', null);
+              dummyacc.push(arr[index]);
+              middlewareCallback(dummyacc);
             }
           })
         }
         // else when it's not last element, then use callbacks
-        else if(i < arr.length - 1) {
-          acc.push(arr[i]);
-          ++i;
-          renderFilter(i);
+        else if(index < arr.length - 1) {
+          acc.push(arr[index]);
+          dummyacc.push(arr[index]);
+          middlewareCallback(dummyacc);
         }
       }
       else {
-        return callback('false', null);
+        dummyacc.push(arr[index]);
+        middlewareCallback(dummyacc);
       }
     });
-  }
-  renderFilter(i);
+  })
 }
