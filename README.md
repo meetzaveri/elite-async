@@ -17,7 +17,7 @@ With pure vanilla JS, I have been able to develop **[caolan's async](https://git
 - Take out pull from development branch and start hacking
 
 ## Inspiration
-I know callbacks and iterator functions were the wizards behind this, I just need to figure out what's behind the curtain. So I started with pure vanilla JS to crack it up. So that I can implement on my own.
+I know callbacks and iterator functions were the wizards behind this, I just need to figure out what's behind the curtain. I started with pure vanilla JS to crack it up, so that I can implement on my own.
 
 ## Todo
 - [ ] Improve Error handling
