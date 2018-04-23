@@ -1,28 +1,29 @@
-var every = require('./utils/every');
-var waterfall =  require('./utils/waterfall');
-var parallel = require('./utils/parallel');
-var filter = require('./utils/filter');
+const every = require('./lib/every');
+const waterfall =  require('./lib/waterfall');
+const parallel = require('./lib/parallel');
+const filter = require('./lib/filter');
+const auto = require('./lib/auto')
 
 /* 
 .every() example 
 */
 
-every(['yes','yes','yes'],function(answer,callback){
-    if(answer === 'yes'){
-      callback(null, true)
-    }
-    else{
-      var err = 'Error occurred'
-      callback(null,false);
-    }
-},function(err,result){
-    if(err){
-        console.log('err: ',err);
-    }
-    else {
-        console.log('Result : ',result)
-    }
-});
+// every(['yes','yes','yes'],function(answer,callback){
+//     if(answer === 'yes'){
+//       callback(null, true)
+//     }
+//     else{
+//       var err = 'Error occurred'
+//       callback(null,false);
+//     }
+// },function(err,result){
+//     if(err){
+//         console.log('err: ',err);
+//     }
+//     else {
+//         console.log('Result : ',result)
+//     }
+// });
 
 /* 
 .waterfall() example 
@@ -135,6 +136,35 @@ every(['yes','yes','yes'],function(answer,callback){
 //       console.log('Result : ',result)
 //   }
 // });
+
+auto({
+  get_data: function(callback) {
+      console.log('in get_data');
+      // async code to get some data
+      callback(null, 'data', 'converted to array');
+  },
+  make_folder: function(callback) {
+      console.log('in make_folder');
+      // async code to create a directory to store a file in
+      // this is run at the same time as getting the data
+      callback(null, 'folder');
+  },
+  write_file: ['get_data', 'make_folder', function(results, callback) {
+      console.log('in write_file', JSON.stringify(results));
+      // once there is some data and the directory exists,
+      // write the data to a file in the directory
+      callback(null, 'filename');
+  }],
+  go_file: ['write_file', function(results, callback) {
+    console.log('in go_file', JSON.stringify(results));
+    // once there is some data and the directory exists,
+    // write the data to a file in the directory
+    callback(null, 'go_file','Done');
+  }]
+}, function(err, results) {
+  console.log('err = ', err);
+  console.log('results = ', results);
+});
 
 console.log('In')
 

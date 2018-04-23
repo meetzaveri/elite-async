@@ -7,6 +7,7 @@ With pure vanilla JS, I have been able to develop **[caolan's async](https://git
 - [X] .every()
 - [X] .waterfall()
 - [X] .filter()
+- [X] .auto()
 
 ### Will implement
 - [ ] .each()
