@@ -137,6 +137,11 @@ const auto = require('./lib/auto')
 //   }
 // });
 
+
+/* 
+auto() example
+*/
+
 auto({
   get_data: function(callback) {
     console.log('in get_data');
@@ -173,64 +178,3 @@ auto({
 });
 
 console.log('In')
-
-// async.waterfall([
-//     function(asyncCB){
-//       verifyEmail(email, function(err, userStatus){
-//         console.log('In if verify email ')
-//           if(err){
-//             return callback(null,err);
-//           }
-//           else if(userStatus.userExists && userStatus.isActive){
-//             asyncCB(null,userStatus);
-//           }
-//           else {
-//             return callback(null,failureResponse);
-//           }
-//       })
-//     },
-//     function(userStatus, asyncCB){
-
-//       const { passwordHash, salt } = utils.saltHashPassword(password);
-//       const { id } = userStatus.userExistsData;
-//         var userObj = {
-//           email: email,
-//           salt: salt,
-//           password: passwordHash,
-//           id: id,
-//         }
-//       if(userStatus.userExists && userStatus.isActive){
-//         updateUser(userObj.email, userObj.password, userObj.salt, userObj.id,function(err,data){
-//           if (err) {
-//             return callback(err,null);
-//           } else {
-//             return asyncCB(null,response);
-//           }
-//         })
-//       }
-//       else {
-//         callback(err,null);
-//       }
-//     },
-//     function(response,asyncCB) {
-//       sendNewPassword(email, password,  function(err,isEmailSent){
-//         if (err){
-//           asyncCB(err);
-//         } else {
-//           if(isEmailSent){
-//             asyncCB(null, true);
-//           } else {
-//             asyncCB(null,false);
-//           }
-//         }
-//       });
-//     }
-// ], function (err, result) {
-//     // result now equals 'done'
-//     if(err){
-//       return callback(null,failureResponse);
-//     }
-//     else {
-//       return callback(null, successResponse);
-//   }
-// });
