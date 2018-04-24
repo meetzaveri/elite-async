@@ -137,29 +137,40 @@ const auto = require('./lib/auto')
 //   }
 // });
 
+
+/* 
+auto() example
+*/
+
 auto({
   get_data: function(callback) {
-      console.log('in get_data');
-      // async code to get some data
+    console.log('in get_data');
+    // async code to get some data
+    
+    setTimeout(function() {
       callback(null, 'data', 'converted to array');
+    }, 3000);
   },
   make_folder: function(callback) {
-      console.log('in make_folder');
-      // async code to create a directory to store a file in
-      // this is run at the same time as getting the data
+    console.log('in make_folder');
+    // async code to create a directory to store a file in
+    // this is run at the same time as getting the data
+    
+    setTimeout(function() {
       callback(null, 'folder');
+    }, 2000);
   },
   write_file: ['get_data', 'make_folder', function(results, callback) {
-      console.log('in write_file', JSON.stringify(results));
-      // once there is some data and the directory exists,
-      // write the data to a file in the directory
-      callback(null, 'filename');
-  }],
-  go_file: ['write_file', function(results, callback) {
-    console.log('in go_file', JSON.stringify(results));
+    console.log('in write_file', JSON.stringify(results));
     // once there is some data and the directory exists,
     // write the data to a file in the directory
-    callback(null, 'go_file','Done');
+    callback(null, 'filename');
+  }],
+  make_file: ['write_file', function(results, callback) {
+    console.log('in make_file', JSON.stringify(results));
+    // once there is some data and the directory exists,
+    // write the data to a file in the directory
+    callback(null, {'file':results, 'email':'user@example.com'});
   }]
 }, function(err, results) {
   console.log('err = ', err);
@@ -167,64 +178,3 @@ auto({
 });
 
 console.log('In')
-
-// async.waterfall([
-//     function(asyncCB){
-//       verifyEmail(email, function(err, userStatus){
-//         console.log('In if verify email ')
-//           if(err){
-//             return callback(null,err);
-//           }
-//           else if(userStatus.userExists && userStatus.isActive){
-//             asyncCB(null,userStatus);
-//           }
-//           else {
-//             return callback(null,failureResponse);
-//           }
-//       })
-//     },
-//     function(userStatus, asyncCB){
-
-//       const { passwordHash, salt } = utils.saltHashPassword(password);
-//       const { id } = userStatus.userExistsData;
-//         var userObj = {
-//           email: email,
-//           salt: salt,
-//           password: passwordHash,
-//           id: id,
-//         }
-//       if(userStatus.userExists && userStatus.isActive){
-//         updateUser(userObj.email, userObj.password, userObj.salt, userObj.id,function(err,data){
-//           if (err) {
-//             return callback(err,null);
-//           } else {
-//             return asyncCB(null,response);
-//           }
-//         })
-//       }
-//       else {
-//         callback(err,null);
-//       }
-//     },
-//     function(response,asyncCB) {
-//       sendNewPassword(email, password,  function(err,isEmailSent){
-//         if (err){
-//           asyncCB(err);
-//         } else {
-//           if(isEmailSent){
-//             asyncCB(null, true);
-//           } else {
-//             asyncCB(null,false);
-//           }
-//         }
-//       });
-//     }
-// ], function (err, result) {
-//     // result now equals 'done'
-//     if(err){
-//       return callback(null,failureResponse);
-//     }
-//     else {
-//       return callback(null, successResponse);
-//   }
-// });
