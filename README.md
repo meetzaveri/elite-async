@@ -52,7 +52,7 @@ auto({
 });
 ```
 #### Overview of .auto()
-![Imgur](https://i.imgur.com/pZpERKH.png)
+![Imgur](https://i.imgur.com/XDFKjMU.png)
 
 ## Want to contribute
 - Take out pull from development branch and start hacking
