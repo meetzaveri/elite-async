@@ -4,6 +4,11 @@ const parallel = require('./lib/parallel');
 const filter = require('./lib/filter');
 const auto = require('./lib/auto')
 
+module.exports = {auto:auto,
+  filter:filter,
+  parallel:parallel,
+  waterfall:waterfall,
+  every:every}
 /* 
 .every() example 
 */
@@ -178,3 +183,4 @@ auto({
 });
 
 console.log('In')
+
