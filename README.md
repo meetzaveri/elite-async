@@ -1,5 +1,11 @@
 # vanilla-async
-With pure vanilla JS, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods.I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
+
+**Zero Dependencies, Pure Vanilla, slim and less LOC :wrench:**
+
+
+With **pure vanilla JS**, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods.I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
+
+**NOTE: There are only few async functions available in this repository(which are basically mainstream and most used), and I will develop more async functions by the time goes **
 
 ## Installation
 [![NPM version](https://img.shields.io/badge/npm-1.0.3-brightgreen.svg)](https://www.npmjs.com/package/vanilla-async)
