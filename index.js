@@ -4,11 +4,7 @@ const parallel = require('./lib/parallel');
 const filter = require('./lib/filter');
 const auto = require('./lib/auto')
 
-module.exports = {auto:auto,
-  filter:filter,
-  parallel:parallel,
-  waterfall:waterfall,
-  every:every}
+
 /* 
 .every() example 
 */
@@ -147,40 +143,47 @@ module.exports = {auto:auto,
 auto() example
 */
 
-auto({
-  get_data: function(callback) {
-    console.log('in get_data');
-    // async code to get some data
+// auto({
+//   get_data: function(callback) {
+//     console.log('in get_data');
+//     // async code to get some data
     
-    setTimeout(function() {
-      callback(null, 'data', 'converted to array');
-    }, 3000);
-  },
-  make_folder: function(callback) {
-    console.log('in make_folder');
-    // async code to create a directory to store a file in
-    // this is run at the same time as getting the data
+//     setTimeout(function() {
+//       callback(null, 'data', 'converted to array');
+//     }, 3000);
+//   },
+//   make_folder: function(callback) {
+//     console.log('in make_folder');
+//     // async code to create a directory to store a file in
+//     // this is run at the same time as getting the data
     
-    setTimeout(function() {
-      callback(null, 'folder');
-    }, 2000);
-  },
-  write_file: ['get_data', 'make_folder', function(results, callback) {
-    console.log('in write_file', JSON.stringify(results));
-    // once there is some data and the directory exists,
-    // write the data to a file in the directory
-    callback(null, 'filename');
-  }],
-  make_file: ['write_file', function(results, callback) {
-    console.log('in make_file', JSON.stringify(results));
-    // once there is some data and the directory exists,
-    // write the data to a file in the directory
-    callback(null, {'file':results, 'email':'user@example.com'});
-  }]
-}, function(err, results) {
-  console.log('err = ', err);
-  console.log('results = ', results);
-});
+//     setTimeout(function() {
+//       callback(null, 'folder');
+//     }, 2000);
+//   },
+//   write_file: ['get_data', 'make_folder', function(results, callback) {
+//     console.log('in write_file', JSON.stringify(results));
+//     // once there is some data and the directory exists,
+//     // write the data to a file in the directory
+//     callback(null, 'filename');
+//   }],
+//   make_file: ['write_file', function(results, callback) {
+//     console.log('in make_file', JSON.stringify(results));
+//     // once there is some data and the directory exists,
+//     // write the data to a file in the directory
+//     callback(null, {'file':results, 'email':'user@example.com'});
+//   }]
+// }, function(err, results) {
+//   console.log('err = ', err);
+//   console.log('results = ', results);
+// });
 
 console.log('In')
 
+module.exports = {
+  auto:auto,
+  filter:filter,
+  parallel:parallel,
+  waterfall:waterfall,
+  every:every
+}
