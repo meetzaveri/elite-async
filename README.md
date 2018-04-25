@@ -1,9 +1,62 @@
 # vanilla-async
 With pure vanilla JS, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods.I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
 
+## Installation
+[![NPM version](https://img.shields.io/badge/npm-1.0.3-brightgreen.svg)](https://www.npmjs.com/package/vanilla-async)
+
+Using npm:
+```
+npm install vanilla-async
+```
+Usage 
+
+```js
+var vanillaAsync = require("vanilla-async");
+vanillaAsync.parallel([
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'one');
+      }, 3200);
+  },
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'two');
+      }, 200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'three');
+    }, 6000);
+  },
+  function(callback) {
+    if(true === true){
+      setTimeout(function() {
+        callback(null, 'four');
+    }, 200);
+    } else{
+      setTimeout(function() {
+        var err = 'Some Error Occured'
+        callback(err);
+    }, 1000);
+    }
+    
+  }
+],
+// optional callback
+function(err, results) {
+  if(err){
+    console.log('Err',err);
+    return;
+  } else{
+    console.log('Results ',results);
+  }
+});
+```
+
+
 ## Collections/ Control-Flow methods 
 #### Currently implemented
-- [X] .parallel()
+- [x] .parallel()
 - [X] .every()
 - [X] .waterfall()
 - [X] .filter()
