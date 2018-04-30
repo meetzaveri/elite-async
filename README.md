@@ -67,9 +67,12 @@ function(err, results) {
 - [X] .waterfall()
 - [X] .filter()
 - [X] .auto()
+- [X] .each()
+- [X] .series()
 
 #### Will implement
-- [ ] .each()
+
+- [ ] .eachSeries()
 - [ ] .reduceRight()
 
 ## Utility overview : Seeking what's behind the `.auto()` function
