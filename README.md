@@ -3,7 +3,7 @@
 **Zero Dependencies, Pure Vanilla, slim and less LOC :wrench:**
 
 
-With **pure vanilla JS**, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods.I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
+With **pure vanilla JS**, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
 
 ***NOTE: There are only few async functions available in this repository(which are basically mainstream and most used), and I will develop more async functions by the time goes. I have not checked extreme/complex test cases as I was just hacking around build this on my own. So shoot out those test cases by creating ISSUE***
 
@@ -67,12 +67,15 @@ function(err, results) {
 - [X] .waterfall()
 - [X] .filter()
 - [X] .auto()
+- [X] .each()
+- [X] .series()
 
 #### Will implement
-- [ ] .each()
+
+- [ ] .eachSeries()
 - [ ] .reduceRight()
 
-## Seeking what's behind the `.auto()` function
+## Utility overview : Seeking what's behind the `.auto()` function
 With help of this article - http://ketangupta.in/blog/development/2018/01/19/async-auto/ I came to know that it's that traditional DFS algorithm which pioneered this `.auto()` implementation.
 #### Code
 ```js
