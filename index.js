@@ -4,6 +4,7 @@ const parallel = require('./lib/parallel');
 const filter = require('./lib/filter');
 const auto = require('./lib/auto')
 const each = require('./lib/each');
+const series = require('./lib/series');
 
 module.exports = {
   auto:auto,
@@ -11,5 +12,6 @@ module.exports = {
   parallel:parallel,
   waterfall:waterfall,
   every:every,
-  each:each
+  each:each,
+  series:series
 }

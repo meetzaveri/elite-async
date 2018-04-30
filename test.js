@@ -4,40 +4,70 @@ const parallel = require('./lib/parallel');
 const filter = require('./lib/filter');
 const auto = require('./lib/auto')
 const each = require('./lib/each');
+const series =  require('./lib/series');
+
+/* 
+.series() example
+*/
+
+series([
+  function(callback) {
+      // do some stuff ...
+      setTimeout(()=>{
+        callback(null, 'one');
+      },1000)
+  },
+  function(callback) {
+    // do some stuff ...
+    setTimeout(()=>{
+      callback(null, 'two');
+    },2000)
+  },
+  function(callback) {
+      // do some more stuff ...
+      callback(null, 'three');
+  }
+],
+// optional callback
+function(err, results) {
+  if (err) console.log('Err:',err);
+  else console.log('Results : ',results);
+  // results is now equal to ['one', 'two']
+});
 
 /* 
 .each() example 
 */
 
-var openFiles = ['dijkstra','prims','kruskal','bellman-ford']
-// assuming openFiles is an array of file names
-each(openFiles, function(file, callback) {
+// var openFiles = ['dijkstra','prims','kruskal','bellman-ford']
+// // assuming openFiles is an array of file names
+// each(openFiles, function(file, callback) {
 
-    // Perform operation on file here.
-    console.log('Processing file ' + file);
+//     // Perform operation on file here.
+//     console.log('Processing file ' + file);
     
-    // Simulating async behaviour with setTimeout
-    setTimeout(function(){
-      if( file.length > 9 ) {
-        console.log('This file name is too long',file);
-        callback('File name too long');
-      } else {
-        // Do work to process file here
-        console.log('File processed');
-        callback();
-      }
-  },2000)
-}, function(err) {
-    // if any of the file processing produced an error, err would equal that error
-    if( err ) {
-      // One of the iterations produced an error.
-      // All processing will now stop.
-      console.log('A file(s) failed to process : ',err );
-      return;
-    } else {
-      console.log('All files have been processed successfully');
-    }
-});
+//     // Simulating async behaviour with setTimeout
+//     setTimeout(function(){
+//       if( file.length > 9 ) {
+//         console.log('This file name is too long',file);
+//         callback('File name too long');
+//       } else {
+//         // Do work to process file here
+//         console.log('File processed');
+//         callback();
+//       }
+//   },2000)
+// }, function(err) {
+//     // if any of the file processing produced an error, err would equal that error
+//     if( err ) {
+//       // One of the iterations produced an error.
+//       // All processing will now stop.
+//       console.log('A file(s) failed to process : ',err );
+//       return;
+//     } else {
+//       console.log('All files have been processed successfully');
+//     }
+// });
 
 /* 
 .every() example 
