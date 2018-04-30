@@ -68,6 +68,7 @@ function(err, results) {
 - [X] .filter()
 - [X] .auto()
 - [X] .each()
+- [X] .series()
 
 #### Will implement
 
