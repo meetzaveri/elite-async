@@ -8,7 +8,7 @@ With **pure vanilla JS**, I have been able to develop **[caolan's async](https:/
 ***NOTE: There are only few async functions available in this repository(which are basically mainstream and most used), and I will develop more async functions by the time goes. I have not checked extreme/complex test cases as I was just hacking around build this on my own. So shoot out those test cases by creating ISSUE***
 
 ## Installation
-[![NPM version](https://img.shields.io/badge/npm-1.0.2-brightgreen.svg)](https://www.npmjs.com/package/vanilla-async)
+[![NPM version](https://img.shields.io/badge/npm-1.0.4-brightgreen.svg)](https://www.npmjs.com/package/vanilla-async)
 
 Using npm:
 ```
