@@ -1,6 +1,6 @@
 # vanilla-async
 
-**Zero Dependencies, Pure Vanilla, slim and less LOC :wrench:**
+**Zero Dependencies, pure vanilla, slim and compact :wrench:**
 
 
 With **pure vanilla JS**, I have been able to develop **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
