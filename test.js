@@ -16,7 +16,7 @@ parallelLimit([
   function(callback) {
       setTimeout(function() {
           callback(null, 'one');
-      }, 7200);
+      }, 4200);
   },
   function(callback) {
       setTimeout(function() {
@@ -26,15 +26,19 @@ parallelLimit([
   function(callback) {
     setTimeout(function() {
         callback(null, 'three');
+    }, 4200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'four');
     }, 200);
   },
   function(callback) {
     setTimeout(function() {
-        var err = 'Some Error Occured'
-        callback(err);
-    }, 1000);
-  }
-],2,
+        callback(null, 'five');
+    }, 200);
+  },
+],5,
 // optional callback
 function(err, results) {
   if(err){
