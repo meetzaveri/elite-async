@@ -5,35 +5,79 @@ const filter = require('./lib/filter');
 const auto = require('./lib/auto')
 const each = require('./lib/each');
 const series =  require('./lib/series');
+const parallelLimit = require('./lib/parallelLimit');
+
+
+/*
+parallelLimit() example
+*/
+
+parallelLimit([
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'one');
+      }, 4200);
+  },
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'two');
+      }, 200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'three');
+    }, 4200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'four');
+    }, 200);
+  },
+  // function(callback) {
+  //   setTimeout(function() {
+  //       callback(null, 'five');
+  //   }, 200);
+  // },
+],2,
+// optional callback
+function(err, results) {
+  if(err){
+    console.log('Err',err);
+    return;
+  } else{
+    console.log('Results ',results);
+  }
+});
+
 
 /* 
 .series() example
 */
 
-series([
-  function(callback) {
-      // do some stuff ...
-      setTimeout(()=>{
-        callback(null, 'one');
-      },1000)
-  },
-  function(callback) {
-    // do some stuff ...
-    setTimeout(()=>{
-      callback(null, 'two');
-    },2000)
-  },
-  function(callback) {
-      // do some more stuff ...
-      callback(null, 'three');
-  }
-],
-// optional callback
-function(err, results) {
-  if (err) console.log('Err:',err);
-  else console.log('Results : ',results);
-  // results is now equal to ['one', 'two']
-});
+// series([
+//   function(callback) {
+//       // do some stuff ...
+//       setTimeout(()=>{
+//         callback(null, 'one');
+//       },1000)
+//   },
+//   function(callback) {
+//     // do some stuff ...
+//     setTimeout(()=>{
+//       callback(null, 'two');
+//     },2000)
+//   },
+//   function(callback) {
+//       // do some more stuff ...
+//       callback(null, 'three');
+//   }
+// ],
+// // optional callback
+// function(err, results) {
+//   if (err) console.log('Err:',err);
+//   else console.log('Results : ',results);
+//   // results is now equal to ['one', 'two']
+// });
 
 /* 
 .each() example 
