@@ -7,47 +7,87 @@ const each = require('./lib/each');
 const series =  require('./lib/series');
 const parallelLimit = require('./lib/parallelLimit');
 
+waterfall([
+  function(callback) {
+      callback(null, 'yes');
+  },
+  function(arg, callback) {
+    console.log('Use prevData 1',arg)
+    var caption = 'works 0' 
+    if(arg === 'yes'){
+      callback(null, caption);
+    } else{
+      console.log('arg else',arg)
+      var err = 'Some error occured in fn.2'
+      callback(err, null);
+    }
+  },
+  function(caption, callback) {
+    console.log('Use prevData 2',caption)
+    var caption = true;
+    callback(null, caption);
+  },
+  function(bool, callback) {
+    if(bool){
+      console.log('Use prevData 3',bool)
+      var caption = ' works 2!';
+      callback(null, caption);
+    } else{
+      var err = 'Some error occured in fn.3'
+      callback(err, null);
+    }
+    
+  }
+],function(err,results){
+console.log(err,results);
+  if(err){
+    console.log('ERR === ',err)
+  }
+  else{
+    console.log('Return',results)
+  }
+});
 
 /*
 parallelLimit() example
 */
 
-parallelLimit([
-  function(callback) {
-      setTimeout(function() {
-          callback(null, 'one');
-      }, 4200);
-  },
-  function(callback) {
-      setTimeout(function() {
-          callback(null, 'two');
-      }, 200);
-  },
-  function(callback) {
-    setTimeout(function() {
-        callback(null, 'three');
-    }, 4200);
-  },
-  function(callback) {
-    setTimeout(function() {
-        callback(null, 'four');
-    }, 200);
-  },
-  function(callback) {
-    setTimeout(function() {
-        callback(null, 'five');
-    }, 200);
-  },
-],5,
-// optional callback
-function(err, results) {
-  if(err){
-    console.log('Err',err);
-    return;
-  } else{
-    console.log('Results ',results);
-  }
-});
+// parallelLimit([
+//   function(callback) {
+//       setTimeout(function() {
+//           callback(null, 'one');
+//       }, 4200);
+//   },
+//   function(callback) {
+//       setTimeout(function() {
+//           callback(null, 'two');
+//       }, 200);
+//   },
+//   function(callback) {
+//     setTimeout(function() {
+//         callback(null, 'three');
+//     }, 4200);
+//   },
+//   function(callback) {
+//     setTimeout(function() {
+//         callback(null, 'four');
+//     }, 200);
+//   },
+//   // function(callback) {
+//   //   setTimeout(function() {
+//   //       callback(null, 'five');
+//   //   }, 200);
+//   // },
+// ],2,
+// // optional callback
+// function(err, results) {
+//   if(err){
+//     console.log('Err',err);
+//     return;
+//   } else{
+//     console.log('Results ',results);
+//   }
+// });
 
 
 /* 
