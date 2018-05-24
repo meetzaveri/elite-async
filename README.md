@@ -119,7 +119,7 @@ auto({
 ## Want to contribute
 - Take out pull from development branch and start hacking
 
-## Inspiration
+## Motivation
 I know callbacks and iterator functions were the wizards behind this, I just need to figure out what's behind the curtain. I started with pure vanilla JS to crack it up, so that I can implement on my own.
 
 ### Todo
