@@ -190,3 +190,39 @@ function(err, results) {
 ```
 
 
+### Using .parallelLimit()
+```js
+parallelLimit([
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'one');
+      }, 4200);
+  },
+  function(callback) {
+      setTimeout(function() {
+          callback(null, 'two');
+      }, 200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'three');
+    }, 4200);
+  },
+  function(callback) {
+    setTimeout(function() {
+        callback(null, 'four');
+    }, 200);
+  },
+],2,
+// optional callback
+function(err, results) {
+  if(err){
+    console.log('Err',err);
+    return;
+  } else{
+    console.log('Results ',results);
+  }
+});
+```
+
+
