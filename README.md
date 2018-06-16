@@ -1,5 +1,5 @@
 # vanilla-async
-This is an approach to implement async collections/control-flow functions with help of pure vanilla js. It cannot be that perfect like real async's library, but my approach is to make it more worth for the devs out there! So use it if it feels that will be okay for your project.
+This is an approach to implement async collections/control-flow functions with help of pure vanilla js. It cannot be that perfect like real async's library, but my attempt is to make it more worth for the devs out there in community! So use it if it feels that will be okay for your project.
 
 **Zero Dependencies, pure vanilla, slim and compact :wrench:**
 
@@ -126,5 +126,4 @@ I know callbacks and iterator functions were the wizards behind this, I just nee
 
 ### Todo
 - [ ] Improve Error handling
-- [ ] Implement more common/most used 'async' collections
 - [ ] More useful functions using ES6's async/await
