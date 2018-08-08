@@ -1,4 +1,4 @@
-# vanilla-async
+# elite-async
 This is a small library to implement async collections/control-flow functions with help of pure vanilla js. It cannot be that perfect like real async's library, but my attempt is to make it more worth for the devs out there in community! So use it if it feels that will be okay for your project.
 
 **Zero Dependencies, pure vanilla, slim and compact :wrench:**
