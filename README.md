@@ -21,7 +21,9 @@ npm install vanilla-async
 Usage
 
 ```js
-var vanillaAsync = require("vanilla-async");
+const vanillaAsync = require("vanilla-async");
+
+// .parallel() example
 vanillaAsync.parallel(
   [
     function(callback) {
