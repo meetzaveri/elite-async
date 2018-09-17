@@ -65,6 +65,9 @@ vanillaAsync.parallel(
 );
 ```
 
+## DOCUMENTATION:
+I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
+
 ## Collections/ Control-Flow methods
 
 #### Currently implemented
@@ -82,8 +85,6 @@ vanillaAsync.parallel(
 - [ ] .eachSeries()
 - [ ] .reduceRight()
 
-## DOCUMENTATION:
-I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
 
 ## Utility overview : Seeking what's behind the `.auto()` function
 
