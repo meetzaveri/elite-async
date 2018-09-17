@@ -82,6 +82,9 @@ vanillaAsync.parallel(
 - [ ] .eachSeries()
 - [ ] .reduceRight()
 
+## DOCUMENTATION:
+I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
+
 ## Utility overview : Seeking what's behind the `.auto()` function
 
 With help of this article - http://ketangupta.in/blog/development/2018/01/19/async-auto/ I came to know that it's that traditional DFS algorithm which pioneered this `.auto()` implementation.
