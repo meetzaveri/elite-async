@@ -1,10 +1,9 @@
 # elite-set-of-async-utilities
 
-This is a small library to implement async collections/control-flow functions with help of pure vanilla js. It cannot be that perfect like real async's library, but my attempt is to make it more worth for the devs out there in community! So use it if it feels that will be okay for your project.
 
 **Zero Dependencies, pure vanilla, slim and compact :wrench:**
 
-With **pure vanilla JS**, I have implemented **[caolan's async](https://github.com/caolan/async)** library's some of the **most used** collections or control flow methods. It is not that sophisticated as caolan's async, but I have managed to scrape out core functionalities of respective collections/control-flow methods. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility
+This is a small library to implement async collections/control-flow functions created with pure vanilla js. This library contains some of the most used control-flow methods which can be used in performing async operations. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility.
 
 **_NOTE: There are only few async functions available in this repository(which are basically mainstream/common in caolan's), and I will develop more async functions by the time goes. I have not checked extreme/complex test cases as I was just hacking around build this on my own. So shoot out those test cases by creating ISSUE_**
 
@@ -21,7 +20,9 @@ npm install vanilla-async
 Usage
 
 ```js
-var vanillaAsync = require("vanilla-async");
+const vanillaAsync = require("vanilla-async");
+
+// .parallel() example
 vanillaAsync.parallel(
   [
     function(callback) {
@@ -64,6 +65,9 @@ vanillaAsync.parallel(
 );
 ```
 
+## DOCUMENTATION:
+I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
+
 ## Collections/ Control-Flow methods
 
 #### Currently implemented
@@ -80,6 +84,7 @@ vanillaAsync.parallel(
 
 - [ ] .eachSeries()
 - [ ] .reduceRight()
+
 
 ## Utility overview : Seeking what's behind the `.auto()` function
 
