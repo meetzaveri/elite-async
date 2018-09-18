@@ -1,6 +1,5 @@
 # elite-set-of-async-utilities
 
-
 **Zero Dependencies, pure vanilla, slim and compact :wrench:**
 
 This is a small library to implement async collections/control-flow functions created with pure vanilla js. This library contains some of the most used control-flow methods which can be used in performing async operations. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility.
@@ -9,18 +8,18 @@ This is a small library to implement async collections/control-flow functions cr
 
 ## Installation
 
-[![NPM version](https://img.shields.io/badge/npm-1.0.8-brightgreen.svg)](https://www.npmjs.com/package/vanilla-async)
+[![NPM version](https://img.shields.io/badge/npm-1.1.1-brightgreen.svg)](https://www.npmjs.com/package/elite-async)
 
 Using npm:
 
 ```
-npm install vanilla-async
+npm i elite-async
 ```
 
 Usage
 
 ```js
-const vanillaAsync = require("vanilla-async");
+const vanillaAsync = require("elite-async");
 
 // .parallel() example
 vanillaAsync.parallel(
@@ -66,6 +65,7 @@ vanillaAsync.parallel(
 ```
 
 ## DOCUMENTATION:
+
 I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
 
 ## Collections/ Control-Flow methods
@@ -84,7 +84,6 @@ I have listed documentation in wiki section - https://github.com/meetzaveri/elit
 
 - [ ] .eachSeries()
 - [ ] .reduceRight()
-
 
 ## Utility overview : Seeking what's behind the `.auto()` function
 
