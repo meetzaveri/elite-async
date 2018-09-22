@@ -1,5 +1,13 @@
 const asyncTaskRunner = require("./lib/asyncTaskRunner");
 
+// RUNS ASYNC TASKS SIMULTANEOUSLY 
+
+// Example 
+// - task 1 started 
+// - task 1 finished
+// - task 2 started
+// - task 2 finished
+
 function task1(done) {
   console.log("Task 1: Started");
   // Some async operation follows
