@@ -85,7 +85,7 @@ vanillaAsync.parallel(
 
 ### Assumption
 Whether you are building production level app or development level(side project) app, what if you only need one or two method(s) from caolan's async package ? 
-The downside of this is that your bundle will take whole caolan's async library(95% of you don't need it) which will affect performance, unnecessary garbage code, etc...
+The downside of this is that your final bundle will take whole caolan's async library(95% of you don't need it) which will affect performance, unnecessary garbage code, etc...
 
 ### Will your app scale in future with more async methods ?
 But if your app will need those unused async utilities(control flow methods) in future as your app scales, then it's probably better choice of using caolan's async for production ready apps. 
@@ -97,8 +97,10 @@ But if your app will need those unused async utilities(control flow methods) in 
 - Take out pull from development branch and start hacking
 
 ## Motivation
-What if I only need one or two methods of caolan's async throughout my app ? Then it's like bundling whole async module which contains unnecessary code as it is only 5% is utilized in my app and rest 95% makes garbage code. Then why not make a less/abstracted version of async as containing most used/common methods.
-I know callbacks and iterator functions were the wizards behind this, I just need to figure out what's behind the curtain. I started with pure vanilla JS to crack it up, so that I can implement on my own.
+What if I only need one or two methods of caolan's async throughout my app ? Then it's like bundling whole async module which contains unnecessary code as it is only 5% is utilized in my app and rest 95%(of the library) makes garbage code. 
+
+Then why not make a abstracted version of async or elite set of async utilities as containing most used/common methods.
+Knowing callbacks and iterator functions were the wizards behind this, I just needed to figure out what's behind the curtain. I started with pure vanilla JS to crack it up, so that I can implement on my own.
 
 ### Todo
 
