@@ -85,7 +85,7 @@ vanillaAsync.parallel(
 
 ### Assumption
 Whether you are building production level app or development level(side project) app, what if you only need one or two method(s) from caolan's async package ? 
-The downside of this is that your final bundle will take whole caolan's async library(95% of you don't need it) which will affect performance, unnecessary garbage code, etc...
+The downside of this is that your final bundle will take whole caolan's async library(95% of you don't need it) which would potentially affect performance, possesing unnecessary garbage code, etc...
 
 ### Will your app scale in future with more async methods ?
 But if your app will need those unused async utilities(control flow methods) in future as your app scales, then it's probably better choice of using caolan's async for production ready apps. 
