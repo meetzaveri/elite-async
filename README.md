@@ -9,7 +9,7 @@ This is a small library to implement async collections/control-flow functions cr
 
 ## Documentation:
 
-I have listed documentation in wiki section - https://github.com/meetzaveri/elite-async/wiki
+I have listed documentation under the wiki section - https://github.com/meetzaveri/elite-async/wiki
 
 ## Installation
 
