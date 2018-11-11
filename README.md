@@ -1,7 +1,8 @@
-# elite-async(elite set of async utilities)
+# elite-async
 
 **Zero dependencies, pure vanilla, slim and compact :wrench:**
 
+## Elite set of async utilities
 This is a small library to implement async collections/control-flow functions created with pure vanilla js. This library contains some of the most used control-flow methods which can be used in performing async operations. I am looking to improve this repo by adding new methods especially using ES6's Async/await utility.
 
 **_NOTE: There are only few async functions available in this repository(which are basically mainstream/common in caolan's), and I will develop more async functions by the time goes. I have not checked extreme/complex test cases as I was just hacking around build this on my own. So shoot out those test cases by creating ISSUE_**
