@@ -19,7 +19,7 @@ I have listed documentation under the wiki section - https://github.com/meetzave
 Using npm:
 
 ```
-npm install elite-async --save
+npm install elite-async --save or npm i 
 ```
 
 Usage
