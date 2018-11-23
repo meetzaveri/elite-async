@@ -46,7 +46,8 @@ vanillaAsync.parallel(
       }, 6000);
     },
     function(callback) {
-      if (true) {
+    let someCondition = true;
+      if (someCondition) {
         setTimeout(function() {
           callback(null, "four");
         }, 200);
