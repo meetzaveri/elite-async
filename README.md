@@ -85,7 +85,7 @@ vanillaAsync.parallel(
 ## Why should I use this (instead of caolan's `async` package)?
 
 ### Assumption
-Whether you are building production level app or development level(side project) app, what if you only need one or two method(s) from caolan's async package ? 
+Whether you are building production level app or development level(side project) app, **what if you only need one or two method(s)** from caolan's async package ? 
 The downside of this is that your final bundle will take whole caolan's async library(95% of you don't need it) which would potentially affect performance, possesing unnecessary garbage code, etc...
 
 [Addy osmani](https://addyosmani.com/blog/performance-budgets/) talks about having a larger package in your app and using only 5% of it would make final bundle more bloated. His preference about having minified modules(small libraries) with abstracting bigger parts from a package is a good way to remove whole package dependency.
