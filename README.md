@@ -16,13 +16,13 @@ I have listed documentation under the wiki section - https://github.com/meetzave
 
 [![NPM version](https://img.shields.io/badge/npm-1.1.1-brightgreen.svg)](https://www.npmjs.com/package/elite-async)
 
-Using npm:
+**Using npm:**
 
 ```
 npm install elite-async --save or npm i elite-async
 ```
 
-Usage
+**Usage**
 
 ```js
 const vanillaAsync = require("elite-async");
